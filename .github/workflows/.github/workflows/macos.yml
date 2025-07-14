@@ -1,0 +1,23 @@
+name: Run on macOS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  macos-job:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Show macOS version
+        run: sw_vers
+
+      - name: Install Homebrew package
+        run: |
+          brew install htop
+          htop --version
+
+      - name: Run custom command
+        run: echo "Hello from macOS GitHub Runner!"
