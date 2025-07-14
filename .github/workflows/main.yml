@@ -1,0 +1,16 @@
+
+name: macOS Run
+
+on:
+  workflow_dispatch:  # ręczne uruchamianie
+
+jobs:
+  run-on-macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: Print macOS info
+        run: |
+          echo "Hello from macOS!"
+          sw_vers
+          system_profiler SPSoftwareDataType
